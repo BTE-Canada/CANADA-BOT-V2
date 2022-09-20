@@ -47,6 +47,7 @@ module.exports = {
     const reviewer = interaction.user.tag;
     const feedback = await options.getString("feedback");
     const member = submissionMsg.author.id;
+    const memberPlus = await interaction.guild.members.fetch(member);
 
     console.log(member)
 
@@ -82,7 +83,7 @@ module.exports = {
             );
 
           const noviceRole = interaction.guild.roles.cache.get("692801758761844746")
-          member.roles.add(noviceRole)
+          memberPlus.roles.add(noviceRole)
           console.log('successfully reviewed build.')
         }
       }
